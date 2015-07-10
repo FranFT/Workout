@@ -8,4 +8,8 @@
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
 
+    <include
+        android:id="@+id/fab_button"
+        layout="@layout/fab_button"/>
+
 </RelativeLayout>
