@@ -1,6 +1,5 @@
 package com.example.fran.workout;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -10,50 +9,109 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+/*
+* Declaring needed variables.
+*/
     // Activity's toolbar.
     private Toolbar toolbar;
 
-    // FAB.
+    // Big FAB.
     private FloatingActionButton fab;
+    // Small FAB
+    private FloatingActionButton fab_create_folder;
 
     // FAB's animation object.
     private Animation fab_animation;
-
+    private Animation small_fab_anim;
     private boolean fab_animation_state = true;
+
+    // Current view.
+    private View current_view;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Finding needed view elements.
+    /*
+    * Finding needed view elements.
+    */
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         fab = (FloatingActionButton) findViewById(R.id.fab_button);
+        fab_create_folder = (FloatingActionButton) findViewById(R.id.fab_button_small_create_folder);
+        current_view = findViewById(R.id.main_layout);
 
-        // Setting up Toolbar.
+    /*
+    * Setting up view elements.
+    */
+        fab_create_folder.setVisibility(View.INVISIBLE);
+
+        // Start Big FAB animation.
+        fab_animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fab_start_anim);
+        fab.startAnimation(fab_animation);
+
+        // Toolbar Setup.
         toolbar.setTitle("My Workouts");
         setSupportActionBar(toolbar);
+
 
         // Setting up FAB when clicked.
         View.OnClickListener onClick_fab = new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(fab_animation_state)
+                if(fab_animation_state) {
                     fab_animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fab_anim);
-                else
-                    fab_animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fab_anim_reverse);
+                    small_fab_anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.small_fab_anim);
 
-                fab.startAnimation(fab_animation);
+                    // Start animations.
+                    fab.startAnimation(fab_animation);
+                    fab_create_folder.setVisibility(View.VISIBLE);
+                    fab_create_folder.startAnimation(small_fab_anim);
+                }
+                else {
+                    fab_animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fab_anim_reverse);
+                    small_fab_anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.small_fab_anim_reverse);
+
+                    fab_create_folder.startAnimation(small_fab_anim);
+                    fab.startAnimation(fab_animation);
+                }
+
+                // Change animation state.
                 fab_animation_state=!fab_animation_state;
+
+                // Start animations.
+                fab.startAnimation(fab_animation);
+
+                fab_create_folder.setVisibility(View.VISIBLE);
+                fab_create_folder.startAnimation(small_fab_anim);
+
             }
         };
 
+        // Setting up reset animation when click the screen.
+        View.OnClickListener reset_fab_animation = new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(!fab_animation_state) {
+                    fab_animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fab_anim_reverse);
+                    fab.startAnimation(fab_animation);
+                    fab_animation_state = !fab_animation_state;
+                }
+            }
+        };
+
+
+    /*
+    * Assigning listeners.
+    */
         fab.setOnClickListener(onClick_fab);
+        current_view.setOnClickListener(reset_fab_animation);
+        toolbar.setOnClickListener(reset_fab_animation);
+
     }
 
     @Override

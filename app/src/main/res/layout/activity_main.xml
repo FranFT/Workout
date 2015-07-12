@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.fran.workout.MainActivity">
@@ -8,8 +9,32 @@
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
 
-    <include
-        android:id="@+id/fab_button"
-        layout="@layout/fab_button"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end">
+
+        <include
+            android:id="@+id/fab_button_small_create_folder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:alpha="100"
+            layout="@layout/fab_button_small" />
+
+        <include
+            android:id="@+id/fab_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/fab_button_small_create_folder"
+            layout="@layout/fab_button"/>
+
+    </RelativeLayout>
+
 
 </FrameLayout>
