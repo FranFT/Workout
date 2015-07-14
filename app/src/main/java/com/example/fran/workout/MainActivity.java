@@ -10,11 +10,64 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
-/*
-* Declaring needed variables.
-*/
+    private static final String TAG = "MainActivity";
+
+    private Toolbar toolbar;
+    private FloatingActionMenu fam;
+    private View.OnClickListener onClick_fam;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Toolbar set up.
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar.setTitle(R.string.toolbar_name);
+
+        // Floating action menu set up.
+        fam = new FloatingActionMenu(this);
+        fam.main_fab = (FloatingActionButton) findViewById(R.id.fab_button);
+        fam.secondary_fab[0] = (FloatingActionButton) findViewById(R.id.fab_button_small_create_folder);
+        fam.Hide_fam();
+        fam.FAB_Start_Up_Animation();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+
+/*public class MainActivity extends AppCompatActivity {
+
+
+//Declaring needed variables.
+
+    private static final String TAG = "MainActivity";
+
     // Activity's toolbar.
     private Toolbar toolbar;
 
@@ -37,17 +90,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    /*
-    * Finding needed view elements.
-    */
+
+    //Finding needed view elements.
+
         toolbar = (Toolbar) findViewById(R.id.app_bar);
+
         fab = (FloatingActionButton) findViewById(R.id.fab_button);
         fab_create_folder = (FloatingActionButton) findViewById(R.id.fab_button_small_create_folder);
         current_view = findViewById(R.id.main_layout);
 
-    /*
-    * Setting up view elements.
-    */
+
+    //Setting up view elements.
+
         fab_create_folder.setVisibility(View.INVISIBLE);
 
         // Start Big FAB animation.
@@ -105,9 +159,10 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-    /*
-    * Assigning listeners.
-    */
+
+     //Assigning listeners.
+
+
         fab.setOnClickListener(onClick_fab);
         current_view.setOnClickListener(reset_fab_animation);
         toolbar.setOnClickListener(reset_fab_animation);
@@ -135,4 +190,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}*/
