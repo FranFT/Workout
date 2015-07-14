@@ -15,7 +15,7 @@
         android:layout_gravity="bottom|end">
 
         <include
-            android:id="@+id/fab_button_small_create_folder"
+            android:id="@+id/small_fab_button_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -31,7 +31,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_below="@id/fab_button_small_create_folder"
+            android:layout_below="@id/small_fab_button_1"
             layout="@layout/fab_button"/>
 
     </RelativeLayout>

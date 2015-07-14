@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity{
 
     private Toolbar toolbar;
     private FloatingActionMenu fam;
-    private View.OnClickListener onClick_fam;
+    private View.OnClickListener onClick_fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,39 @@ public class MainActivity extends AppCompatActivity{
         toolbar.setTitle(R.string.toolbar_name);
 
         // Floating action menu set up.
+        //// Creating Floating Action Menu.
         fam = new FloatingActionMenu(this);
+
+        //// Assigning resource buttons.
         fam.main_fab = (FloatingActionButton) findViewById(R.id.fab_button);
-        fam.secondary_fab[0] = (FloatingActionButton) findViewById(R.id.fab_button_small_create_folder);
+        fam.secondary_fab[0] = (FloatingActionButton) findViewById(R.id.small_fab_button_1);
+
+        //// Hiding Floating Action Menu.
         fam.Hide_fam();
+
+        // Start up main floating button animation.
         fam.FAB_Start_Up_Animation();
 
+        // Setting up Floating action menu onclick listener.
+        onClick_fab = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case R.id.fab_button:
+                        fam.onClickFab(0, MainActivity.this);
+                        break;
+                    case R.id.small_fab_button_1:
+                        fam.onClickFab(1, MainActivity.this);
+                        break;
+
+                    //
+                    // Add other buttons.
+                    //
+                }
+            }
+        };
+
+        fam.SetOnclickListener(onClick_fab);
     }
 
     @Override

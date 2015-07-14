@@ -1,7 +1,9 @@
 package com.example.fran.workout;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,6 +19,7 @@ public class FloatingActionMenu{
     private int secondary_fab_num;
     private boolean fab_clicked;
     private Animation main_fab_animation;
+    private Animation secondary_fab_animation;
     public FloatingActionButton main_fab;
     public FloatingActionButton[] secondary_fab;
     /**
@@ -38,7 +41,6 @@ public class FloatingActionMenu{
 
         // Get the start animation.
         main_fab_animation = AnimationUtils.loadAnimation(c,R.anim.fab_start_anim);
-
     }
 
     /**
@@ -56,4 +58,53 @@ public class FloatingActionMenu{
         main_fab.startAnimation(main_fab_animation);
     }
 
+    public void SetOnclickListener(View.OnClickListener L){
+        main_fab.setOnClickListener(L);
+        secondary_fab[0].setOnClickListener(L);
+
+        //for(int i=0; i<secondary_fab_num; i++)
+            //secondary_fab[i].setOnClickListener(L);
+    }
+
+    private void AnimateMenu(Context c){
+        // FAB button its not clicked -> Floating menu must open.
+        if(!fab_clicked) {
+            // Load appropriate animations.
+            main_fab_animation = AnimationUtils.loadAnimation(c, R.anim.fab_anim);
+            secondary_fab_animation = AnimationUtils.loadAnimation(c, R.anim.small_fab_anim);
+
+            // Start the appropriate animations over appropriate elements.
+            main_fab.startAnimation(main_fab_animation);
+            secondary_fab[0].setVisibility(View.VISIBLE);
+            secondary_fab[0].startAnimation(secondary_fab_animation);
+        }
+        // FAB button its clicked -> Floating menu must close.
+        else{
+            // Load appropriate animations.
+            main_fab_animation = AnimationUtils.loadAnimation(c, R.anim.fab_anim_reverse);
+            secondary_fab_animation = AnimationUtils.loadAnimation(c, R.anim.small_fab_anim_reverse);
+
+            // Start the appropriate animations over appropriate elements.
+            secondary_fab[0].startAnimation(secondary_fab_animation);
+            secondary_fab[0].setVisibility(View.INVISIBLE);
+            main_fab.startAnimation(main_fab_animation);
+        }
+
+        // Chang Fab state.
+        fab_clicked = !fab_clicked;
+    }
+
+    public void onClickFab(int id, Context c){
+        switch (id){
+            // Click on MAIN FAB.
+            case 0:
+                AnimateMenu(c);
+                break;
+
+            // Click on First SECONDARY FAB.
+            case 1:
+
+                break;
+        }
+    }
 }
