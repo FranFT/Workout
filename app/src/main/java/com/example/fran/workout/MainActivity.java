@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -34,6 +32,8 @@ public class MainActivity extends AppCompatActivity{
         //// Assigning resource buttons.
         fam.main_fab = (FloatingActionButton) findViewById(R.id.fab_button);
         fam.secondary_fab[0] = (FloatingActionButton) findViewById(R.id.small_fab_button_1);
+        fam.secondary_fab[1] = (FloatingActionButton) findViewById(R.id.small_fab_button_2);
+        fam.secondary_fab[2] = (FloatingActionButton) findViewById(R.id.small_fab_button_3);
 
         //// Hiding Floating Action Menu.
         fam.Hide_fam();
@@ -52,10 +52,12 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.small_fab_button_1:
                         fam.onClickFab(1, MainActivity.this);
                         break;
-
-                    //
-                    // Add other buttons.
-                    //
+                    case R.id.small_fab_button_2:
+                        fam.onClickFab(2, MainActivity.this);
+                        break;
+                    case R.id.small_fab_button_3:
+                        fam.onClickFab(3, MainActivity.this);
+                        break;
                 }
             }
         };

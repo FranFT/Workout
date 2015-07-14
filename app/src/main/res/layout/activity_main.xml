@@ -15,24 +15,46 @@
         android:layout_gravity="bottom|end">
 
         <include
-            android:id="@+id/small_fab_button_1"
+            android:id="@+id/small_fab_button_3"
+            layout="@layout/fab_button_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:alpha="100"
-            layout="@layout/fab_button_small" />
+            android:layout_marginBottom="16dp"
+            android:alpha="100" />
+
+        <include
+            android:id="@+id/small_fab_button_2"
+            layout="@layout/fab_button_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@id/small_fab_button_3"
+            android:alpha="100" />
+
+        <include
+            android:id="@+id/small_fab_button_1"
+            layout="@layout/fab_button_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@id/small_fab_button_2"
+            android:alpha="100" />
 
         <include
             android:id="@+id/fab_button"
+            layout="@layout/fab_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_below="@id/small_fab_button_1"
-            layout="@layout/fab_button"/>
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp" />
 
     </RelativeLayout>
 

@@ -1,9 +1,7 @@
 package com.example.fran.workout;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -60,10 +58,8 @@ public class FloatingActionMenu{
 
     public void SetOnclickListener(View.OnClickListener L){
         main_fab.setOnClickListener(L);
-        secondary_fab[0].setOnClickListener(L);
-
-        //for(int i=0; i<secondary_fab_num; i++)
-            //secondary_fab[i].setOnClickListener(L);
+        for(int i=0; i<secondary_fab_num; i++)
+            secondary_fab[i].setOnClickListener(L);
     }
 
     private void AnimateMenu(Context c){
@@ -75,8 +71,13 @@ public class FloatingActionMenu{
 
             // Start the appropriate animations over appropriate elements.
             main_fab.startAnimation(main_fab_animation);
-            secondary_fab[0].setVisibility(View.VISIBLE);
-            secondary_fab[0].startAnimation(secondary_fab_animation);
+
+            for(int i=0; i<secondary_fab_num; i++){
+                secondary_fab[i].setVisibility(View.VISIBLE);
+                secondary_fab[i].startAnimation(secondary_fab_animation);
+            }
+            //secondary_fab[0].setVisibility(View.VISIBLE);
+            //secondary_fab[0].startAnimation(secondary_fab_animation);
         }
         // FAB button its clicked -> Floating menu must close.
         else{
@@ -85,8 +86,12 @@ public class FloatingActionMenu{
             secondary_fab_animation = AnimationUtils.loadAnimation(c, R.anim.small_fab_anim_reverse);
 
             // Start the appropriate animations over appropriate elements.
-            secondary_fab[0].startAnimation(secondary_fab_animation);
-            secondary_fab[0].setVisibility(View.INVISIBLE);
+            for(int i=0; i<secondary_fab_num; i++){
+                secondary_fab[i].startAnimation(secondary_fab_animation);
+                secondary_fab[i].setVisibility(View.INVISIBLE);
+            }
+            //secondary_fab[0].startAnimation(secondary_fab_animation);
+            //secondary_fab[0].setVisibility(View.INVISIBLE);
             main_fab.startAnimation(main_fab_animation);
         }
 
