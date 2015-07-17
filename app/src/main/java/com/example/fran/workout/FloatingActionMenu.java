@@ -1,6 +1,7 @@
 package com.example.fran.workout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.view.animation.Animation;
@@ -76,8 +77,6 @@ public class FloatingActionMenu{
                 secondary_fab[i].setVisibility(View.VISIBLE);
                 secondary_fab[i].startAnimation(secondary_fab_animation);
             }
-            //secondary_fab[0].setVisibility(View.VISIBLE);
-            //secondary_fab[0].startAnimation(secondary_fab_animation);
         }
         // FAB button its clicked -> Floating menu must close.
         else{
@@ -90,8 +89,7 @@ public class FloatingActionMenu{
                 secondary_fab[i].startAnimation(secondary_fab_animation);
                 secondary_fab[i].setVisibility(View.INVISIBLE);
             }
-            //secondary_fab[0].startAnimation(secondary_fab_animation);
-            //secondary_fab[0].setVisibility(View.INVISIBLE);
+
             main_fab.startAnimation(main_fab_animation);
         }
 
@@ -105,10 +103,15 @@ public class FloatingActionMenu{
             case 0:
                 AnimateMenu(c);
                 break;
-
             // Click on First SECONDARY FAB.
             case 1:
-
+                // Create new intent to start a
+                Intent intent = new Intent(c, CreateExerciseActivity.class);
+                c.startActivity(intent);
+                break;
+            case 2:
+                break;
+            case 3:
                 break;
         }
     }

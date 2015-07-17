@@ -12,7 +12,8 @@ public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MainActivity";
 
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
+    private Toolbar myToolbar;
     private FloatingActionMenu fam;
     private View.OnClickListener onClick_fab;
 
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         // Toolbar set up.
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
-        toolbar.setTitle(R.string.toolbar_name);
+        myToolbar = (Toolbar) findViewById(R.id.app_bar);
+        myToolbar.setTitle(R.string.toolbar_name);
 
         // Floating action menu set up.
         //// Creating Floating Action Menu.

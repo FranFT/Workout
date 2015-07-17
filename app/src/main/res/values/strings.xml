@@ -4,6 +4,9 @@
 
     <string name="action_settings">Settings</string>
     <string name="toolbar_name">My Workouts</string>
+    <string name="title_activity_create_exercise">CreateExerciseActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 
     <!-- ToolBar strings -->
 </resources>
