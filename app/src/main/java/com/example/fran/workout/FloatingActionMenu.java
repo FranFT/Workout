@@ -63,7 +63,7 @@ public class FloatingActionMenu{
             secondary_fab[i].setOnClickListener(L);
     }
 
-    private void AnimateMenu(Context c){
+    public void AnimateMenu(Context c){
         // FAB button its not clicked -> Floating menu must open.
         if(!fab_clicked) {
             // Load appropriate animations.
@@ -116,5 +116,9 @@ public class FloatingActionMenu{
             case 3:
                 break;
         }
+    }
+
+    public boolean getFABstate(){
+        return fab_clicked;
     }
 }

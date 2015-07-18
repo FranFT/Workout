@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -16,11 +17,15 @@ public class MainActivity extends AppCompatActivity{
     private Toolbar myToolbar;
     private FloatingActionMenu fam;
     private View.OnClickListener onClick_fab;
+    private ImageView fade_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fade_view = (ImageView) findViewById(R.id.fade_background);
+        fade_view.setEnabled(false);
 
         // Toolbar set up.
         myToolbar = (Toolbar) findViewById(R.id.app_bar);
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.fab_button:
+                        fade_background_animation(fade_view, fam.getFABstate());
                         fam.onClickFab(0, MainActivity.this);
                         break;
                     case R.id.small_fab_button_1:
@@ -59,11 +65,27 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.small_fab_button_3:
                         fam.onClickFab(3, MainActivity.this);
                         break;
+                    case R.id.fade_background:
+                        fade_background_animation(fade_view, fam.getFABstate());
+                        fam.AnimateMenu(MainActivity.this);
+                        break;
                 }
             }
         };
 
         fam.SetOnclickListener(onClick_fab);
+        fade_view.setOnClickListener(onClick_fab);
+    }
+
+    public void fade_background_animation(View v, boolean reverse){
+        if(!reverse) {
+            v.animate().alpha(0.5f).setDuration(200);
+            v.setEnabled(true);
+        }
+        else {
+            v.animate().alpha(0.0f).setDuration(200);
+            v.setEnabled(false);
+        }
     }
 
     @Override

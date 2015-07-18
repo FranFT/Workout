@@ -9,42 +9,75 @@
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
 
+    <ImageView
+        android:id="@+id/fade_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff000000"
+        android:alpha="0.0"
+        android:contentDescription="@string/fade_layer_content">
+    </ImageView>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end">
 
-        <include
+        <android.support.design.widget.FloatingActionButton
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/small_fab_button_3"
-            layout="@layout/fab_button_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
-            android:alpha="100" />
+            app:fabSize="mini"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            app:backgroundTint="@android:color/background_light"
+            android:src="@drawable/ic_add_folder_black_24dp"
+            android:tint="@android:color/darker_gray">
 
-        <include
+        </android.support.design.widget.FloatingActionButton>
+
+        <android.support.design.widget.FloatingActionButton
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/small_fab_button_2"
-            layout="@layout/fab_button_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
-            android:layout_below="@id/small_fab_button_3"
-            android:alpha="100" />
+            app:fabSize="mini"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            app:backgroundTint="@android:color/background_light"
+            android:src="@drawable/ic_add_folder_black_24dp"
+            android:tint="@android:color/darker_gray"
+            android:layout_below="@id/small_fab_button_3">
 
-        <include
+        </android.support.design.widget.FloatingActionButton>
+
+        <android.support.design.widget.FloatingActionButton
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/small_fab_button_1"
-            layout="@layout/fab_button_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
-            android:layout_below="@id/small_fab_button_2"
-            android:alpha="100" />
+            app:fabSize="mini"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            app:backgroundTint="@android:color/background_light"
+            android:src="@drawable/ic_add_folder_black_24dp"
+            android:tint="@android:color/darker_gray"
+            android:layout_below="@id/small_fab_button_2">
+
+        </android.support.design.widget.FloatingActionButton>
 
         <include
             android:id="@+id/fab_button"
