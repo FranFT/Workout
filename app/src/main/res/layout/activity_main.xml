@@ -14,37 +14,55 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end">
 
-        <include
+        <android.support.design.widget.FloatingActionButton
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/small_fab_button_3"
-            layout="@layout/fab_button_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
-            android:alpha="100" />
+            android:src="@drawable/ic_add_folder_black_24dp"
+            android:tint="@android:color/darker_gray"
+            app:fabSize="mini"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            app:backgroundTint="@android:color/background_light" />
 
-        <include
+        <android.support.design.widget.FloatingActionButton
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/small_fab_button_2"
-            layout="@layout/fab_button_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add_folder_black_24dp"
+            android:tint="@android:color/darker_gray"
             android:layout_below="@id/small_fab_button_3"
-            android:alpha="100" />
+            app:fabSize="mini"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            app:backgroundTint="@android:color/background_light" />
 
-        <include
+        <android.support.design.widget.FloatingActionButton
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/small_fab_button_1"
-            layout="@layout/fab_button_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add_folder_black_24dp"
+            android:tint="@android:color/darker_gray"
             android:layout_below="@id/small_fab_button_2"
-            android:alpha="100" />
+            app:fabSize="mini"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            app:backgroundTint="@android:color/background_light" />
 
         <include
             android:id="@+id/fab_button"

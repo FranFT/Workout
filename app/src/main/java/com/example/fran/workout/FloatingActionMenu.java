@@ -74,6 +74,7 @@ public class FloatingActionMenu{
 
             for(int i=0; i<secondary_fab_num; i++){
                 secondary_fab[i].setVisibility(View.VISIBLE);
+                secondary_fab[i].setEnabled(true);
                 secondary_fab[i].startAnimation(secondary_fab_animation);
             }
             //secondary_fab[0].setVisibility(View.VISIBLE);
@@ -88,6 +89,7 @@ public class FloatingActionMenu{
             // Start the appropriate animations over appropriate elements.
             for(int i=0; i<secondary_fab_num; i++){
                 secondary_fab[i].startAnimation(secondary_fab_animation);
+                secondary_fab[i].setEnabled(false);
                 secondary_fab[i].setVisibility(View.INVISIBLE);
             }
             //secondary_fab[0].startAnimation(secondary_fab_animation);
